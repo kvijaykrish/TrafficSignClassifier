@@ -19,9 +19,9 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/visualization.jpg "Visualization"
-[image2]: ./examples/grayscale.jpg "Grayscaling"
-[image3]: ./examples/random_noise.jpg "Random Noise"
+[image1]: ./examples/visualization1.jpg "Visualization"
+[image2]: ./examples/grayscale1.jpg "Grayscaling"
+[image3]: ./examples/TrainAccuracy.png "Training Accuracy"
 [image4]: ./examples/img1.png "Traffic Sign 1"
 [image5]: ./examples/img2.png "Traffic Sign 2"
 [image6]: ./examples/img3.png "Traffic Sign 3"
@@ -94,9 +94,6 @@ To add more data to the the data set, I used the following techniques:
 1. I added more images in the class which had few original images. 
 2. This is done by adding modified images by appling affine transformation (rotation, shear, translation) on exisitng images 
 
-Here is an example of an original image and an augmented image:
-
-![alt text][image3]
 
 The difference between the original data set and the augmented data set is the following:
 1. The inital training data set had 34799 images of size 32x32x3
@@ -113,10 +110,10 @@ My final model consisted of the following layers:
 |:---------------------:|:---------------------------------------------:| 
 | Input         		| 32x32x1 preprocessed grayscale normalized image   							| 
 | Convolution 3x3     	| 1x1 stride, same padding, outputs 28x28x6 	|
-| RELU					|												|
+| RELU					|	output 28x28x6											|
 | Max pooling	      	| 2x2 stride,  outputs 14x14x6 				|
 | Convolution 3x3     	| 1x1 stride, same padding, outputs 10x10x16 	|
-| RELU					|												|
+| RELU					|	output 10x10x16											|
 | Max pooling	      	| 2x2 stride,  outputs 5x5x16 				|
 | Fully connected		| 3 Fully connected layer output 43 logits        									|
 | Softmax				| Softmax and Cross Entropy is applied        									|
@@ -145,6 +142,8 @@ My final model results were:
 * validation set accuracy of 0.937
 * test set accuracy of 0.911
 
+![alt text][image3]
+
 If an iterative approach was chosen:
 * What was the first architecture that was tried and why was it chosen?
 -> Initially the LeNet architecture was used with original data set of color images.
@@ -170,13 +169,13 @@ If a well known architecture was chosen:
 
 ####1. Choose five German traffic signs found on the web and provide them in the report. For each image, discuss what quality or qualities might be difficult to classify.
 
-Here are five German traffic signs that I found on the web:
+Here are seven German traffic signs that I found on the web:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] 
 ![alt text][image7] ![alt text][image8]![alt text][image9]
 ![alt text][image10]
 
-The first image might be difficult to classify because ...
+The first image might be difficult to classify because it is simialr to many other calsses (speed limit) and also the picture is very dark.
 
 ####2. Discuss the model's predictions on these new traffic signs and compare the results to predicting on the test set. Identify where in your code predictions were made. At a minimum, discuss what the predictions were, the accuracy on these new predictions, and compare the accuracy to the accuracy on the test set (OPTIONAL: Discuss the results in more detail as described in the "Stand Out Suggestions" part of the rubric).
 
@@ -201,7 +200,7 @@ The model was able to correctly guess 7 of the 7 traffic signs, which gives an a
 
 The code for making predictions on my final model is located in the 11th cell of the Ipython notebook.
 
-For the first image, the model is relatively sure that this is a Speed limit (70km/h) sign (probability of 0.99), and the image does contain a Speed limit (70km/h) sign. The top five soft max probabilities were
+For the first image, the model is very sure that this is a Speed limit (70km/h) sign (probability of 0.99), and the image does contain a Speed limit (70km/h) sign. The top five soft max probabilities were
 
 | Probability         	|     Prediction	        					| 
 |:---------------------:|:---------------------------------------------:| 
